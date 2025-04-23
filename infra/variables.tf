@@ -5,5 +5,4 @@ variable "aws_region" {
 
 variable "state_bucket_name" {
   type = string
-  default = "tasky-terraform-state-2025"
 }
