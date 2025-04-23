@@ -12,8 +12,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      AWS_REGION: us-east-1
-      ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com
+      ECR_REGISTRY: ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
       ECR_REPOSITORY: tasky
 
     steps:
@@ -24,7 +23,7 @@ jobs:
         run: |
           aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws configure set region ${{ env.AWS_REGION }}
+          aws configure set region us-east-1
 
       - name: Login to Amazon ECR
         id: login-ecr
